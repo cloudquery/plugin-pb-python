@@ -26,11 +26,11 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.2",
+    version="0.0.3",
     description=description,
     author="CloudQuery LTD",
     author_email="cloudquery-packages@cloudquery.io",
-    license="Apache 2.0",
+    license="MPL-2.0",
     url=url,
     classifiers=[
         # release_status,
