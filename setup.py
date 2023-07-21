@@ -19,6 +19,10 @@ url = "https://github.com/cloudquery/plugin-pb-python"
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
+readme_filename = os.path.join(package_root, "README.rst")
+with io.open(readme_filename, encoding="utf-8") as readme_file:
+    readme = readme_file.read()
+
 packages = [
     package
     for package in setuptools.PEP420PackageFinder.find()
@@ -26,10 +30,11 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.3",
+    version="0.0.4",
     description=description,
+    long_description=readme,
     author="CloudQuery LTD",
-    author_email="cloudquery-packages@cloudquery.io",
+    author_email="pypi-packages@cloudquery.io",
     license="MPL-2.0",
     url=url,
     classifiers=[
