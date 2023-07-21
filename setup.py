@@ -19,9 +19,14 @@ url = "https://github.com/cloudquery/plugin-pb-python"
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
-readme_filename = os.path.join(package_root, "readme.rst")
-with io.open(readme_filename, encoding="utf-8") as readme_file:
-    readme = readme_file.read()
+long_description = """Python Low Level Client for CloudQuery Plugin
+=============================
+
+Overview
+-----------
+
+This is low level gRPC APIs for CloudQuery Plugin. Please see more on [github.com/cloudquery/plugin-pb-pyton](https://github.com/cloudquery/plugin-pb-pyton)
+"""
 
 packages = [
     package
@@ -30,9 +35,9 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.7",
+    version="0.0.8",
     description=description,
-    long_description=readme,
+    long_description=long_description,
     author="CloudQuery LTD",
     author_email="pypi-packages@cloudquery.io",
     license="MPL-2.0",
