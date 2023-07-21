@@ -19,8 +19,9 @@ url = "https://github.com/cloudquery/plugin-pb-python"
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
-long_description = """Python Low Level Client for CloudQuery Plugin
-=============================
+long_description = """
+Python Low Level Client for CloudQuery Plugin
+================================================
 
 Overview
 -----------
@@ -35,7 +36,7 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.8",
+    version="0.0.9",
     description=description,
     long_description=long_description,
     author="CloudQuery LTD",
