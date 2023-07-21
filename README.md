@@ -11,7 +11,7 @@ This is a low-level auto-generate gRPC client and server for CloudQuery plugin f
 we recommend using virtualenv to manage your python environment.
 
 ```bash
-virtualenv -p python3.7 venv
+virtualenv -p python3.7 venv # or any python >= 3.7
 source venv/bin/activate
 ```
 
