@@ -1,7 +1,10 @@
-import grpc
-from concurrent import futures
 import logging
+from concurrent import futures
+
+import grpc
+
 from cloudquery.plugin_v3 import plugin_pb2, plugin_pb2_grpc
+
 
 class PluginServicer(plugin_pb2_grpc.PluginServicer):
     def __init__(self):
@@ -32,6 +35,7 @@ class PluginServicer(plugin_pb2_grpc.PluginServicer):
 
     def Close(self, request, context):
         return plugin_pb2.Close.Response()
+
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
