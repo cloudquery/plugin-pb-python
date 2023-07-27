@@ -14,6 +14,7 @@ dependencies = [
     "grpcio >= 1.56.0",
     "grpcio-tools >= 1.56.0",
     "protobuf >= 4.23.4",
+    "pyarrow >= 12.0.1"
 ]
 url = "https://github.com/cloudquery/plugin-pb-python"
 
@@ -36,7 +37,7 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.12",
+    version="0.0.13",
     description=description,
     long_description=long_description,
     author="CloudQuery LTD",
