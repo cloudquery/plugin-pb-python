@@ -36,7 +36,7 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.11",
+    version="0.0.12",
     description=description,
     long_description=long_description,
     author="CloudQuery LTD",
@@ -64,6 +64,6 @@ setuptools.setup(
     # namespace_packages=namespaces,
     install_requires=dependencies,
     include_package_data=True,
-    package_data={"cloudquery": ["plugin_v3/py.typed", "plugin_v3/*.pyi"]},
+    package_data={"cloudquery": ["plugin_v3/py.typed", "plugin_v3/*.pyi", "discovery_v1/py.typed", "discovery_v1/*.pyi"]},
     zip_safe=False,
 )
