@@ -6,7 +6,7 @@ import setuptools  # type: ignore
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
-name = "plugin-pb-python"
+name = "cloudquery-plugin-pb"
 
 description = "CloudQuery Plugin client and server library"
 
@@ -37,7 +37,7 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.13",
+    version="0.0.14",
     description=description,
     long_description=long_description,
     author="CloudQuery LTD",
