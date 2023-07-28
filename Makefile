@@ -1,8 +1,16 @@
+test:
+	pytest .
+
+fmt:
+	black . --exclude=cloudquery
+
+fmt-check:
+	black --check . --exclude=cloudquery
 
 clone-proto:
 	git clone https://github.com/cloudquery/plugin-pb
 
-gen:
+gen-proto:
 	cd plugin-pb && git pull && cd ..
 
 	mkdir -p ./protos/cloudquery/plugin_v3

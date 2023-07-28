@@ -39,14 +39,13 @@ class PluginServicer(plugin_pb2_grpc.PluginServicer):
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    plugin_pb2_grpc.add_PluginServicer_to_server(
-        PluginServicer(), server)
-    server.add_insecure_port('[::]:50051')
+    plugin_pb2_grpc.add_PluginServicer_to_server(PluginServicer(), server)
+    server.add_insecure_port("[::]:50051")
     print("Starting server. Listening on port 50051")
     server.start()
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig()
     serve()
