@@ -14,7 +14,7 @@ dependencies = [
     "grpcio >= 1.56.0",
     "grpcio-tools >= 1.56.0",
     "protobuf >= 4.23.4",
-    "pyarrow >= 12.0.1"
+    "pyarrow >= 12.0.1",
 ]
 url = "https://github.com/cloudquery/plugin-pb-python"
 
@@ -65,6 +65,13 @@ setuptools.setup(
     # namespace_packages=namespaces,
     install_requires=dependencies,
     include_package_data=True,
-    package_data={"cloudquery": ["plugin_v3/py.typed", "plugin_v3/*.pyi", "discovery_v1/py.typed", "discovery_v1/*.pyi"]},
+    package_data={
+        "cloudquery": [
+            "plugin_v3/py.typed",
+            "plugin_v3/*.pyi",
+            "discovery_v1/py.typed",
+            "discovery_v1/*.pyi",
+        ]
+    },
     zip_safe=False,
 )

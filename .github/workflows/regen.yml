@@ -1,0 +1,36 @@
+name: Generate Python Code from plugin-pb
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  regen:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Generate code
+        run: |
+          make clone-proto
+          make gen-proto
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          # required so the PR triggers workflow runs
+          token: ${{ secrets.GH_CQ_BOT }}
+          branch: fix/gen_proto
+          base: main
+          title: "fix: Generate Python Code from `plugin-pb`"
+          commit-message: "fix: Generate Python Code from `plugin-pb`"
+          body: This PR was created by a scheduled workflow to regenerate the Python code from `plugin-pb`.
+          author: cq-bot <cq-bot@users.noreply.github.com>
+          labels: automerge
