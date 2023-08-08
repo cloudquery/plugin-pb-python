@@ -47,12 +47,14 @@ class Init(_message.Message):
 class GetTables(_message.Message):
     __slots__ = []
     class Request(_message.Message):
-        __slots__ = ["tables", "skip_tables"]
+        __slots__ = ["tables", "skip_tables", "skip_dependent_tables"]
         TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_TABLES_FIELD_NUMBER: _ClassVar[int]
+        SKIP_DEPENDENT_TABLES_FIELD_NUMBER: _ClassVar[int]
         tables: _containers.RepeatedScalarFieldContainer[str]
         skip_tables: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ...) -> None: ...
+        skip_dependent_tables: bool
+        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ...) -> None: ...
     class Response(_message.Message):
         __slots__ = ["tables"]
         TABLES_FIELD_NUMBER: _ClassVar[int]
