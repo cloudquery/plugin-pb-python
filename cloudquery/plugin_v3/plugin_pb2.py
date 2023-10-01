@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cloudquery.plugin_v3.plugin_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\027io.cloudquery.plugin.v3P\001Z6github.com/cloudquery/plugin-pb-go/pb/plugin/v3;plugin'
   _WRITE_MESSAGEDELETESTALE.fields_by_name['table']._options = None
