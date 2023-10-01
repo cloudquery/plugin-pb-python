@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cloudquery.discovery_v1.discovery_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032io.cloudquery.discovery.v1P\001Z<github.com/cloudquery/plugin-pb-go/pb/discovery/v1;discovery'
   _globals['_GETVERSIONS']._serialized_start=68
