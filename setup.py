@@ -14,7 +14,7 @@ dependencies = [
     "grpcio >= 1.56.0",
     "grpcio-tools >= 1.56.0",
     "protobuf >= 4.23.4",
-    "pyarrow >= 12.0.1",
+    "pyarrow >= 13.0.0",
 ]
 url = "https://github.com/cloudquery/plugin-pb-python"
 
