@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.19](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.18...v0.0.19) (2023-10-27)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency pyarrow to v13 ([#19](https://github.com/cloudquery/plugin-pb-python/issues/19)) ([361a318](https://github.com/cloudquery/plugin-pb-python/commit/361a318d7b116744a36ac808784d5e5c0b72ec21))
+
 ## [0.0.18](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.17...v0.0.18) (2023-10-12)
 
 
