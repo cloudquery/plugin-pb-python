@@ -8,47 +8,47 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetName(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     class Response(_message.Message):
-        __slots__ = ["name"]
+        __slots__ = ("name",)
         NAME_FIELD_NUMBER: _ClassVar[int]
         name: str
         def __init__(self, name: _Optional[str] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class GetVersion(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     class Response(_message.Message):
-        __slots__ = ["version"]
+        __slots__ = ("version",)
         VERSION_FIELD_NUMBER: _ClassVar[int]
         version: str
         def __init__(self, version: _Optional[str] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class Init(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = ["spec", "no_connection"]
+        __slots__ = ("spec", "no_connection")
         SPEC_FIELD_NUMBER: _ClassVar[int]
         NO_CONNECTION_FIELD_NUMBER: _ClassVar[int]
         spec: bytes
         no_connection: bool
         def __init__(self, spec: _Optional[bytes] = ..., no_connection: bool = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     def __init__(self) -> None: ...
 
 class GetTables(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = ["tables", "skip_tables", "skip_dependent_tables"]
+        __slots__ = ("tables", "skip_tables", "skip_dependent_tables")
         TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_DEPENDENT_TABLES_FIELD_NUMBER: _ClassVar[int]
@@ -57,26 +57,26 @@ class GetTables(_message.Message):
         skip_dependent_tables: bool
         def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ["tables"]
+        __slots__ = ("tables",)
         TABLES_FIELD_NUMBER: _ClassVar[int]
         tables: _containers.RepeatedScalarFieldContainer[bytes]
         def __init__(self, tables: _Optional[_Iterable[bytes]] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class Sync(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class MessageInsert(_message.Message):
-        __slots__ = ["record"]
+        __slots__ = ("record",)
         RECORD_FIELD_NUMBER: _ClassVar[int]
         record: bytes
         def __init__(self, record: _Optional[bytes] = ...) -> None: ...
     class MessageMigrateTable(_message.Message):
-        __slots__ = ["table"]
+        __slots__ = ("table",)
         TABLE_FIELD_NUMBER: _ClassVar[int]
         table: bytes
         def __init__(self, table: _Optional[bytes] = ...) -> None: ...
     class MessageDeleteRecord(_message.Message):
-        __slots__ = ["table_name", "where_clause", "table_relations"]
+        __slots__ = ("table_name", "where_clause", "table_relations")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
         WHERE_CLAUSE_FIELD_NUMBER: _ClassVar[int]
         TABLE_RELATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -85,14 +85,14 @@ class Sync(_message.Message):
         table_relations: _containers.RepeatedCompositeFieldContainer[TableRelation]
         def __init__(self, table_name: _Optional[str] = ..., where_clause: _Optional[_Iterable[_Union[PredicatesGroup, _Mapping]]] = ..., table_relations: _Optional[_Iterable[_Union[TableRelation, _Mapping]]] = ...) -> None: ...
     class BackendOptions(_message.Message):
-        __slots__ = ["table_name", "connection"]
+        __slots__ = ("table_name", "connection")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
         CONNECTION_FIELD_NUMBER: _ClassVar[int]
         table_name: str
         connection: str
         def __init__(self, table_name: _Optional[str] = ..., connection: _Optional[str] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ["tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend"]
+        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend")
         TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_DEPENDENT_TABLES_FIELD_NUMBER: _ClassVar[int]
@@ -105,7 +105,7 @@ class Sync(_message.Message):
         backend: Sync.BackendOptions
         def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ["migrate_table", "insert", "delete_record"]
+        __slots__ = ("migrate_table", "insert", "delete_record")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
         INSERT_FIELD_NUMBER: _ClassVar[int]
         DELETE_RECORD_FIELD_NUMBER: _ClassVar[int]
@@ -116,21 +116,21 @@ class Sync(_message.Message):
     def __init__(self) -> None: ...
 
 class Read(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = ["table"]
+        __slots__ = ("table",)
         TABLE_FIELD_NUMBER: _ClassVar[int]
         table: bytes
         def __init__(self, table: _Optional[bytes] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ["record"]
+        __slots__ = ("record",)
         RECORD_FIELD_NUMBER: _ClassVar[int]
         record: bytes
         def __init__(self, record: _Optional[bytes] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class TableRelation(_message.Message):
-    __slots__ = ["table_name", "parent_table"]
+    __slots__ = ("table_name", "parent_table")
     TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
     PARENT_TABLE_FIELD_NUMBER: _ClassVar[int]
     table_name: str
@@ -138,9 +138,9 @@ class TableRelation(_message.Message):
     def __init__(self, table_name: _Optional[str] = ..., parent_table: _Optional[str] = ...) -> None: ...
 
 class Predicate(_message.Message):
-    __slots__ = ["operator", "column", "record"]
+    __slots__ = ("operator", "column", "record")
     class Operator(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         EQ: _ClassVar[Predicate.Operator]
     EQ: Predicate.Operator
     OPERATOR_FIELD_NUMBER: _ClassVar[int]
@@ -152,9 +152,9 @@ class Predicate(_message.Message):
     def __init__(self, operator: _Optional[_Union[Predicate.Operator, str]] = ..., column: _Optional[str] = ..., record: _Optional[bytes] = ...) -> None: ...
 
 class PredicatesGroup(_message.Message):
-    __slots__ = ["grouping_type", "predicates"]
+    __slots__ = ("grouping_type", "predicates")
     class GroupingType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         AND: _ClassVar[PredicatesGroup.GroupingType]
         OR: _ClassVar[PredicatesGroup.GroupingType]
     AND: PredicatesGroup.GroupingType
@@ -166,21 +166,21 @@ class PredicatesGroup(_message.Message):
     def __init__(self, grouping_type: _Optional[_Union[PredicatesGroup.GroupingType, str]] = ..., predicates: _Optional[_Iterable[_Union[Predicate, _Mapping]]] = ...) -> None: ...
 
 class Write(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class MessageMigrateTable(_message.Message):
-        __slots__ = ["table", "migrate_force"]
+        __slots__ = ("table", "migrate_force")
         TABLE_FIELD_NUMBER: _ClassVar[int]
         MIGRATE_FORCE_FIELD_NUMBER: _ClassVar[int]
         table: bytes
         migrate_force: bool
         def __init__(self, table: _Optional[bytes] = ..., migrate_force: bool = ...) -> None: ...
     class MessageInsert(_message.Message):
-        __slots__ = ["record"]
+        __slots__ = ("record",)
         RECORD_FIELD_NUMBER: _ClassVar[int]
         record: bytes
         def __init__(self, record: _Optional[bytes] = ...) -> None: ...
     class MessageDeleteStale(_message.Message):
-        __slots__ = ["table", "source_name", "sync_time", "table_name"]
+        __slots__ = ("table", "source_name", "sync_time", "table_name")
         TABLE_FIELD_NUMBER: _ClassVar[int]
         SOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
         SYNC_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -191,7 +191,7 @@ class Write(_message.Message):
         table_name: str
         def __init__(self, table: _Optional[bytes] = ..., source_name: _Optional[str] = ..., sync_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., table_name: _Optional[str] = ...) -> None: ...
     class MessageDeleteRecord(_message.Message):
-        __slots__ = ["table_name", "where_clause", "table_relations"]
+        __slots__ = ("table_name", "where_clause", "table_relations")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
         WHERE_CLAUSE_FIELD_NUMBER: _ClassVar[int]
         TABLE_RELATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -200,7 +200,7 @@ class Write(_message.Message):
         table_relations: _containers.RepeatedCompositeFieldContainer[TableRelation]
         def __init__(self, table_name: _Optional[str] = ..., where_clause: _Optional[_Iterable[_Union[PredicatesGroup, _Mapping]]] = ..., table_relations: _Optional[_Iterable[_Union[TableRelation, _Mapping]]] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ["migrate_table", "insert", "delete", "delete_record"]
+        __slots__ = ("migrate_table", "insert", "delete", "delete_record")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
         INSERT_FIELD_NUMBER: _ClassVar[int]
         DELETE_FIELD_NUMBER: _ClassVar[int]
@@ -211,16 +211,16 @@ class Write(_message.Message):
         delete_record: Write.MessageDeleteRecord
         def __init__(self, migrate_table: _Optional[_Union[Write.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Write.MessageInsert, _Mapping]] = ..., delete: _Optional[_Union[Write.MessageDeleteStale, _Mapping]] = ..., delete_record: _Optional[_Union[Write.MessageDeleteRecord, _Mapping]] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     def __init__(self) -> None: ...
 
 class Close(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Request(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     class Response(_message.Message):
-        __slots__ = []
+        __slots__ = ()
         def __init__(self) -> None: ...
     def __init__(self) -> None: ...
