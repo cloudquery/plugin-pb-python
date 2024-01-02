@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.21](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.20...v0.0.21) (2024-01-02)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v23.11.0 ([#41](https://github.com/cloudquery/plugin-pb-python/issues/41)) ([34bfdec](https://github.com/cloudquery/plugin-pb-python/commit/34bfdeccef7ee7ba5460691b7f3e765b430549d2))
+* **deps:** Update dependency black to v23.12.1 ([#45](https://github.com/cloudquery/plugin-pb-python/issues/45)) ([3505670](https://github.com/cloudquery/plugin-pb-python/commit/35056700d67d5e7a6a87ffbf305c71a040510ce1))
+* **deps:** Update dependency grpcio to v1.59.3 ([#38](https://github.com/cloudquery/plugin-pb-python/issues/38)) ([251df41](https://github.com/cloudquery/plugin-pb-python/commit/251df41a49cc720e70b6d00bab13e93bb87ecb00))
+* **deps:** Update dependency grpcio to v1.60.0 ([#46](https://github.com/cloudquery/plugin-pb-python/issues/46)) ([2bff16d](https://github.com/cloudquery/plugin-pb-python/commit/2bff16df46d68a0a14b2d59df89aed250b74c5c2))
+* **deps:** Update dependency grpcio-tools to v1.59.3 ([#39](https://github.com/cloudquery/plugin-pb-python/issues/39)) ([21cfa08](https://github.com/cloudquery/plugin-pb-python/commit/21cfa08f9ff6d187a034c70e875e532c337be2e5))
+* **deps:** Update dependency grpcio-tools to v1.60.0 ([#47](https://github.com/cloudquery/plugin-pb-python/issues/47)) ([411af61](https://github.com/cloudquery/plugin-pb-python/commit/411af6187c385c79ba6ca6c1daac1d27858583fd))
+* **deps:** Update dependency protobuf to v4.25.1 ([#42](https://github.com/cloudquery/plugin-pb-python/issues/42)) ([f0d28c6](https://github.com/cloudquery/plugin-pb-python/commit/f0d28c6039681aec72bc11329df174062a289fca))
+* **deps:** Update dependency pytest to v7.4.4 ([#44](https://github.com/cloudquery/plugin-pb-python/issues/44)) ([552ab23](https://github.com/cloudquery/plugin-pb-python/commit/552ab232625fec322d4ae2af75192a47fa1b7957))
+* Generate Python Code from `plugin-pb` ([#50](https://github.com/cloudquery/plugin-pb-python/issues/50)) ([3360e7e](https://github.com/cloudquery/plugin-pb-python/commit/3360e7ebe109ff2cbfd040f971726d1decf51299))
+
 ## [0.0.20](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.19...v0.0.20) (2023-11-01)
 
 
