@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.22](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.21...v0.0.22) (2024-02-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v24 ([#54](https://github.com/cloudquery/plugin-pb-python/issues/54)) ([0164923](https://github.com/cloudquery/plugin-pb-python/commit/0164923369b1e2bd972f445164f6b2964655d655))
+* **deps:** Update dependency protobuf to v4.25.2 ([#53](https://github.com/cloudquery/plugin-pb-python/issues/53)) ([b348e46](https://github.com/cloudquery/plugin-pb-python/commit/b348e46011a0d48b42d2138a5b19d1ddc591e5ed))
+* **deps:** Update dependency pytest to v8 ([#57](https://github.com/cloudquery/plugin-pb-python/issues/57)) ([3684dd8](https://github.com/cloudquery/plugin-pb-python/commit/3684dd8d62a9ff88cd9d281d8b022a4bd63cf269))
+
 ## [0.0.21](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.20...v0.0.21) (2024-01-02)
 
 
