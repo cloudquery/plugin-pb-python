@@ -24,6 +24,11 @@ class PluginStub(object):
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Response.FromString,
                 )
+        self.GetSpecSchema = channel.unary_unary(
+                '/cloudquery.plugin.v3.Plugin/GetSpecSchema',
+                request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Request.SerializeToString,
+                response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Response.FromString,
+                )
         self.Init = channel.unary_unary(
                 '/cloudquery.plugin.v3.Plugin/Init',
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Init.Request.SerializeToString,
@@ -68,6 +73,15 @@ class PluginServicer(object):
 
     def GetVersion(self, request, context):
         """Get the current version of the plugin
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSpecSchema(self, request, context):
+        """Get plugin spec schema.
+        This will allow validating the input even before calling Init.
+        Should be called before Init.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -128,6 +142,11 @@ def add_PluginServicer_to_server(servicer, server):
                     servicer.GetVersion,
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Response.SerializeToString,
+            ),
+            'GetSpecSchema': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSpecSchema,
+                    request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Request.FromString,
+                    response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Response.SerializeToString,
             ),
             'Init': grpc.unary_unary_rpc_method_handler(
                     servicer.Init,
@@ -200,6 +219,23 @@ class Plugin(object):
         return grpc.experimental.unary_unary(request, target, '/cloudquery.plugin.v3.Plugin/GetVersion',
             cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Request.SerializeToString,
             cloudquery_dot_plugin__v3_dot_plugin__pb2.GetVersion.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSpecSchema(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cloudquery.plugin.v3.Plugin/GetSpecSchema',
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Request.SerializeToString,
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.GetSpecSchema.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
