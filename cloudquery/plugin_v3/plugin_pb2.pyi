@@ -31,6 +31,18 @@ class GetVersion(_message.Message):
         def __init__(self, version: _Optional[str] = ...) -> None: ...
     def __init__(self) -> None: ...
 
+class GetSpecSchema(_message.Message):
+    __slots__ = ()
+    class Request(_message.Message):
+        __slots__ = ()
+        def __init__(self) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ("json_schema",)
+        JSON_SCHEMA_FIELD_NUMBER: _ClassVar[int]
+        json_schema: str
+        def __init__(self, json_schema: _Optional[str] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
 class Init(_message.Message):
     __slots__ = ()
     class Request(_message.Message):
