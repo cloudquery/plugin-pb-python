@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.23](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.22...v0.0.23) (2024-02-09)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency pyarrow to v15 ([#56](https://github.com/cloudquery/plugin-pb-python/issues/56)) ([3acf899](https://github.com/cloudquery/plugin-pb-python/commit/3acf899d4bd675154c61885b8b8ea07a6c4513b7))
+* Generate Python Code from `plugin-pb` ([#59](https://github.com/cloudquery/plugin-pb-python/issues/59)) ([ca2574b](https://github.com/cloudquery/plugin-pb-python/commit/ca2574b0bafb6c9adbc541c1096b03d88f32b904))
+
 ## [0.0.22](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.21...v0.0.22) (2024-02-01)
 
 
