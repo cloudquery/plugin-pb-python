@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.24](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.23...v0.0.24) (2024-03-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v24.2.0 ([#64](https://github.com/cloudquery/plugin-pb-python/issues/64)) ([74d8de4](https://github.com/cloudquery/plugin-pb-python/commit/74d8de455c17110d0181a026fa924fb3384ef352))
+* **deps:** Update dependency grpcio to v1.62.0 ([#65](https://github.com/cloudquery/plugin-pb-python/issues/65)) ([1cdd19b](https://github.com/cloudquery/plugin-pb-python/commit/1cdd19bcba8c8e8fadc5c1b6598e2ddd86144b0c))
+* **deps:** Update dependency grpcio-tools to v1.62.0 ([#66](https://github.com/cloudquery/plugin-pb-python/issues/66)) ([fc82bf5](https://github.com/cloudquery/plugin-pb-python/commit/fc82bf55b763a8e7a819990ed77796e7b216d6df))
+* **deps:** Update dependency protobuf to v4.25.3 ([#61](https://github.com/cloudquery/plugin-pb-python/issues/61)) ([d0f77f3](https://github.com/cloudquery/plugin-pb-python/commit/d0f77f36cfc9396b4f06c1ff012006ebbf80e9a9))
+* **deps:** Update dependency pytest to v8.0.2 ([#62](https://github.com/cloudquery/plugin-pb-python/issues/62)) ([be9ac4d](https://github.com/cloudquery/plugin-pb-python/commit/be9ac4d8b48e93ae2ac581d1c75b1555db6f220e))
+* Generate Python Code from `plugin-pb` ([#67](https://github.com/cloudquery/plugin-pb-python/issues/67)) ([ca81f6b](https://github.com/cloudquery/plugin-pb-python/commit/ca81f6be2f8870b151c4c68d070f32ed791e7d3f))
+
 ## [0.0.23](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.22...v0.0.23) (2024-02-09)
 
 
