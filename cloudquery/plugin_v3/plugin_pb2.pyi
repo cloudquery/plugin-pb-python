@@ -46,12 +46,14 @@ class GetSpecSchema(_message.Message):
 class Init(_message.Message):
     __slots__ = ()
     class Request(_message.Message):
-        __slots__ = ("spec", "no_connection")
+        __slots__ = ("spec", "no_connection", "invocation_id")
         SPEC_FIELD_NUMBER: _ClassVar[int]
         NO_CONNECTION_FIELD_NUMBER: _ClassVar[int]
+        INVOCATION_ID_FIELD_NUMBER: _ClassVar[int]
         spec: bytes
         no_connection: bool
-        def __init__(self, spec: _Optional[bytes] = ..., no_connection: bool = ...) -> None: ...
+        invocation_id: str
+        def __init__(self, spec: _Optional[bytes] = ..., no_connection: bool = ..., invocation_id: _Optional[str] = ...) -> None: ...
     class Response(_message.Message):
         __slots__ = ()
         def __init__(self) -> None: ...
