@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.25](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.24...v0.0.25) (2024-03-25)
+
+
+### Bug Fixes
+
+* Generate Python Code from `plugin-pb` ([#68](https://github.com/cloudquery/plugin-pb-python/issues/68)) ([db54598](https://github.com/cloudquery/plugin-pb-python/commit/db54598e127a955d60994ad2b8ac477bca8f9ba1))
+
 ## [0.0.24](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.23...v0.0.24) (2024-03-01)
 
 
