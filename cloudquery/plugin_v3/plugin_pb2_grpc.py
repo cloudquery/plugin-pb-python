@@ -84,6 +84,11 @@ class PluginStub(object):
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Response.FromString,
                 _registered_method=True)
+        self.TestConnection = channel.unary_unary(
+                '/cloudquery.plugin.v3.Plugin/TestConnection',
+                request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.SerializeToString,
+                response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.FromString,
+                _registered_method=True)
 
 
 class PluginServicer(object):
@@ -155,6 +160,13 @@ class PluginServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TestConnection(self, request, context):
+        """Validate and test the connections used by the plugin
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PluginServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -202,6 +214,11 @@ def add_PluginServicer_to_server(servicer, server):
                     servicer.Close,
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Response.SerializeToString,
+            ),
+            'TestConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestConnection,
+                    request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.FromString,
+                    response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -446,6 +463,33 @@ class Plugin(object):
             '/cloudquery.plugin.v3.Plugin/Close',
             cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Request.SerializeToString,
             cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def TestConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cloudquery.plugin.v3.Plugin/TestConnection',
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.SerializeToString,
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.FromString,
             options,
             channel_credentials,
             insecure,

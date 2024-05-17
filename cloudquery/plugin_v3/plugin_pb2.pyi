@@ -238,3 +238,21 @@ class Close(_message.Message):
         __slots__ = ()
         def __init__(self) -> None: ...
     def __init__(self) -> None: ...
+
+class TestConnection(_message.Message):
+    __slots__ = ()
+    class Request(_message.Message):
+        __slots__ = ("spec",)
+        SPEC_FIELD_NUMBER: _ClassVar[int]
+        spec: bytes
+        def __init__(self, spec: _Optional[bytes] = ...) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ("success", "failure_code", "failure_description")
+        SUCCESS_FIELD_NUMBER: _ClassVar[int]
+        FAILURE_CODE_FIELD_NUMBER: _ClassVar[int]
+        FAILURE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        success: bool
+        failure_code: str
+        failure_description: str
+        def __init__(self, success: bool = ..., failure_code: _Optional[str] = ..., failure_description: _Optional[str] = ...) -> None: ...
+    def __init__(self) -> None: ...
