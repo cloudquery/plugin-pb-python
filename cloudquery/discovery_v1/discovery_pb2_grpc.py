@@ -5,7 +5,7 @@ import warnings
 
 from cloudquery.discovery_v1 import discovery_pb2 as cloudquery_dot_discovery__v1_dot_discovery__pb2
 
-GRPC_GENERATED_VERSION = '1.63.0'
+GRPC_GENERATED_VERSION = '1.64.0'
 GRPC_VERSION = grpc.__version__
 EXPECTED_ERROR_RELEASE = '1.65.0'
 SCHEDULED_RELEASE_DATE = 'June 25, 2024'
@@ -68,6 +68,7 @@ def add_DiscoveryServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'cloudquery.discovery.v1.Discovery', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('cloudquery.discovery.v1.Discovery', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
