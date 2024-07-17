@@ -79,6 +79,11 @@ class PluginStub(object):
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Response.FromString,
                 _registered_method=True)
+        self.Transform = channel.stream_stream(
+                '/cloudquery.plugin.v3.Plugin/Transform',
+                request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Request.SerializeToString,
+                response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Response.FromString,
+                _registered_method=True)
         self.Close = channel.unary_unary(
                 '/cloudquery.plugin.v3.Plugin/Close',
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Close.Request.SerializeToString,
@@ -153,6 +158,13 @@ class PluginServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Transform(self, request_iterator, context):
+        """Transform resources.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Close(self, request, context):
         """Send signal to flush and close open connections
         """
@@ -209,6 +221,11 @@ def add_PluginServicer_to_server(servicer, server):
                     servicer.Write,
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Response.SerializeToString,
+            ),
+            'Transform': grpc.stream_stream_rpc_method_handler(
+                    servicer.Transform,
+                    request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Request.FromString,
+                    response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Response.SerializeToString,
             ),
             'Close': grpc.unary_unary_rpc_method_handler(
                     servicer.Close,
@@ -437,6 +454,33 @@ class Plugin(object):
             '/cloudquery.plugin.v3.Plugin/Write',
             cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Request.SerializeToString,
             cloudquery_dot_plugin__v3_dot_plugin__pb2.Write.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Transform(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cloudquery.plugin.v3.Plugin/Transform',
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Request.SerializeToString,
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Response.FromString,
             options,
             channel_credentials,
             insecure,
