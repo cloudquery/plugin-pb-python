@@ -229,6 +229,20 @@ class Write(_message.Message):
         def __init__(self) -> None: ...
     def __init__(self) -> None: ...
 
+class Transform(_message.Message):
+    __slots__ = ()
+    class Request(_message.Message):
+        __slots__ = ("record",)
+        RECORD_FIELD_NUMBER: _ClassVar[int]
+        record: bytes
+        def __init__(self, record: _Optional[bytes] = ...) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ("record",)
+        RECORD_FIELD_NUMBER: _ClassVar[int]
+        record: bytes
+        def __init__(self, record: _Optional[bytes] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
 class Close(_message.Message):
     __slots__ = ()
     class Request(_message.Message):
