@@ -243,6 +243,20 @@ class Transform(_message.Message):
         def __init__(self, record: _Optional[bytes] = ...) -> None: ...
     def __init__(self) -> None: ...
 
+class TransformSchema(_message.Message):
+    __slots__ = ()
+    class Request(_message.Message):
+        __slots__ = ("schema",)
+        SCHEMA_FIELD_NUMBER: _ClassVar[int]
+        schema: bytes
+        def __init__(self, schema: _Optional[bytes] = ...) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ("schema",)
+        SCHEMA_FIELD_NUMBER: _ClassVar[int]
+        schema: bytes
+        def __init__(self, schema: _Optional[bytes] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
 class Close(_message.Message):
     __slots__ = ()
     class Request(_message.Message):
