@@ -84,7 +84,7 @@ class PluginStub(object):
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Response.FromString,
                 _registered_method=True)
-        self.TransformSchema = channel.stream_stream(
+        self.TransformSchema = channel.unary_unary(
                 '/cloudquery.plugin.v3.Plugin/TransformSchema',
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TransformSchema.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TransformSchema.Response.FromString,
@@ -170,7 +170,7 @@ class PluginServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TransformSchema(self, request_iterator, context):
+    def TransformSchema(self, request, context):
         """Transform schemas.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -239,7 +239,7 @@ def add_PluginServicer_to_server(servicer, server):
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.Transform.Response.SerializeToString,
             ),
-            'TransformSchema': grpc.stream_stream_rpc_method_handler(
+            'TransformSchema': grpc.unary_unary_rpc_method_handler(
                     servicer.TransformSchema,
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TransformSchema.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TransformSchema.Response.SerializeToString,
@@ -509,7 +509,7 @@ class Plugin(object):
             _registered_method=True)
 
     @staticmethod
-    def TransformSchema(request_iterator,
+    def TransformSchema(request,
             target,
             options=(),
             channel_credentials=None,
@@ -519,8 +519,8 @@ class Plugin(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(
-            request_iterator,
+        return grpc.experimental.unary_unary(
+            request,
             target,
             '/cloudquery.plugin.v3.Plugin/TransformSchema',
             cloudquery_dot_plugin__v3_dot_plugin__pb2.TransformSchema.Request.SerializeToString,
