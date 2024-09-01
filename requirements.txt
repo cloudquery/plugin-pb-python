@@ -1,6 +1,6 @@
 black==24.4.2
 grpcio-tools==1.65.2
-grpcio==1.65.2
+grpcio==1.66.1
 protobuf==5.27.3
 pyarrow==17.0.0
 pytest==8.3.2
