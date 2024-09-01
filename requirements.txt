@@ -1,4 +1,4 @@
-black==24.4.2
+black==24.8.0
 grpcio-tools==1.65.2
 grpcio==1.65.2
 protobuf==5.27.3
