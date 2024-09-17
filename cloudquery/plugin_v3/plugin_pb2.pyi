@@ -106,18 +106,27 @@ class Sync(_message.Message):
         connection: str
         def __init__(self, table_name: _Optional[str] = ..., connection: _Optional[str] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend")
+        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend", "shard")
+        class Shard(_message.Message):
+            __slots__ = ("num", "total")
+            NUM_FIELD_NUMBER: _ClassVar[int]
+            TOTAL_FIELD_NUMBER: _ClassVar[int]
+            num: int
+            total: int
+            def __init__(self, num: _Optional[int] = ..., total: _Optional[int] = ...) -> None: ...
         TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_TABLES_FIELD_NUMBER: _ClassVar[int]
         SKIP_DEPENDENT_TABLES_FIELD_NUMBER: _ClassVar[int]
         DETERMINISTIC_CQ_ID_FIELD_NUMBER: _ClassVar[int]
         BACKEND_FIELD_NUMBER: _ClassVar[int]
+        SHARD_FIELD_NUMBER: _ClassVar[int]
         tables: _containers.RepeatedScalarFieldContainer[str]
         skip_tables: _containers.RepeatedScalarFieldContainer[str]
         skip_dependent_tables: bool
         deterministic_cq_id: bool
         backend: Sync.BackendOptions
-        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ...) -> None: ...
+        shard: Sync.Request.Shard
+        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ...) -> None: ...
     class Response(_message.Message):
         __slots__ = ("migrate_table", "insert", "delete_record")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
