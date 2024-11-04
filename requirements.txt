@@ -1,5 +1,5 @@
 black==24.10.0
-grpcio-tools==1.66.2
+grpcio-tools==1.67.1
 grpcio==1.67.1
 protobuf==5.28.3
 pyarrow==18.0.0
