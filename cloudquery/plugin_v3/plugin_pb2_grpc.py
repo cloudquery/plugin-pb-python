@@ -5,7 +5,7 @@ import warnings
 
 from cloudquery.plugin_v3 import plugin_pb2 as cloudquery_dot_plugin__v3_dot_plugin__pb2
 
-GRPC_GENERATED_VERSION = '1.68.0'
+GRPC_GENERATED_VERSION = '1.68.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
