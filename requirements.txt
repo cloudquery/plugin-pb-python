@@ -2,5 +2,5 @@ black==24.10.0
 grpcio-tools==1.68.1
 grpcio==1.70.0
 protobuf==5.29.3
-pyarrow==18.0.0
+pyarrow==18.1.0
 pytest==8.3.4
