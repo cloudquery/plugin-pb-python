@@ -98,6 +98,13 @@ class Sync(_message.Message):
         where_clause: _containers.RepeatedCompositeFieldContainer[PredicatesGroup]
         table_relations: _containers.RepeatedCompositeFieldContainer[TableRelation]
         def __init__(self, table_name: _Optional[str] = ..., where_clause: _Optional[_Iterable[_Union[PredicatesGroup, _Mapping]]] = ..., table_relations: _Optional[_Iterable[_Union[TableRelation, _Mapping]]] = ...) -> None: ...
+    class MessageError(_message.Message):
+        __slots__ = ("table_name", "error")
+        TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
+        ERROR_FIELD_NUMBER: _ClassVar[int]
+        table_name: str
+        error: str
+        def __init__(self, table_name: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...
     class BackendOptions(_message.Message):
         __slots__ = ("table_name", "connection")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -128,14 +135,16 @@ class Sync(_message.Message):
         shard: Sync.Request.Shard
         def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ("migrate_table", "insert", "delete_record")
+        __slots__ = ("migrate_table", "insert", "delete_record", "error")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
         INSERT_FIELD_NUMBER: _ClassVar[int]
         DELETE_RECORD_FIELD_NUMBER: _ClassVar[int]
+        ERROR_FIELD_NUMBER: _ClassVar[int]
         migrate_table: Sync.MessageMigrateTable
         insert: Sync.MessageInsert
         delete_record: Sync.MessageDeleteRecord
-        def __init__(self, migrate_table: _Optional[_Union[Sync.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Sync.MessageInsert, _Mapping]] = ..., delete_record: _Optional[_Union[Sync.MessageDeleteRecord, _Mapping]] = ...) -> None: ...
+        error: Sync.MessageError
+        def __init__(self, migrate_table: _Optional[_Union[Sync.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Sync.MessageInsert, _Mapping]] = ..., delete_record: _Optional[_Union[Sync.MessageDeleteRecord, _Mapping]] = ..., error: _Optional[_Union[Sync.MessageError, _Mapping]] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class Read(_message.Message):
