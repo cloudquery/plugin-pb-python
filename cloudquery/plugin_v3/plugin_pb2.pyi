@@ -113,7 +113,7 @@ class Sync(_message.Message):
         connection: str
         def __init__(self, table_name: _Optional[str] = ..., connection: _Optional[str] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend", "shard")
+        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend", "shard", "withErrorMessages")
         class Shard(_message.Message):
             __slots__ = ("num", "total")
             NUM_FIELD_NUMBER: _ClassVar[int]
@@ -127,13 +127,15 @@ class Sync(_message.Message):
         DETERMINISTIC_CQ_ID_FIELD_NUMBER: _ClassVar[int]
         BACKEND_FIELD_NUMBER: _ClassVar[int]
         SHARD_FIELD_NUMBER: _ClassVar[int]
+        WITHERRORMESSAGES_FIELD_NUMBER: _ClassVar[int]
         tables: _containers.RepeatedScalarFieldContainer[str]
         skip_tables: _containers.RepeatedScalarFieldContainer[str]
         skip_dependent_tables: bool
         deterministic_cq_id: bool
         backend: Sync.BackendOptions
         shard: Sync.Request.Shard
-        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ...) -> None: ...
+        withErrorMessages: bool
+        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ..., withErrorMessages: bool = ...) -> None: ...
     class Response(_message.Message):
         __slots__ = ("migrate_table", "insert", "delete_record", "error")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
