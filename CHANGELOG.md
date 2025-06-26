@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.44](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.43...v0.0.44) (2025-06-25)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency protobuf to v5.29.5 [SECURITY] ([#162](https://github.com/cloudquery/plugin-pb-python/issues/162)) ([bdf356e](https://github.com/cloudquery/plugin-pb-python/commit/bdf356e85bd68e4d8db31c6b29c68149eea75c22))
+* Generate Python Code from `plugin-pb` ([#164](https://github.com/cloudquery/plugin-pb-python/issues/164)) ([386b701](https://github.com/cloudquery/plugin-pb-python/commit/386b701fe64be6aa2a9a08cddbc0c1a104e621b8))
+
 ## [0.0.43](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.42...v0.0.43) (2025-05-01)
 
 
