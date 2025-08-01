@@ -5,7 +5,7 @@ import warnings
 
 from cloudquery.discovery_v1 import discovery_pb2 as cloudquery_dot_discovery__v1_dot_discovery__pb2
 
-GRPC_GENERATED_VERSION = '1.73.0'
+GRPC_GENERATED_VERSION = '1.74.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
