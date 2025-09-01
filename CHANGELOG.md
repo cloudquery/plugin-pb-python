@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.47](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.46...v0.0.47) (2025-09-01)
+
+
+### Bug Fixes
+
+* **deps:** Update actions/checkout action to v5 ([#177](https://github.com/cloudquery/plugin-pb-python/issues/177)) ([c093ab0](https://github.com/cloudquery/plugin-pb-python/commit/c093ab0e8c1dea44d7f951c7a11c7abc918692e4))
+* **deps:** Update amannn/action-semantic-pull-request action to v6 ([#178](https://github.com/cloudquery/plugin-pb-python/issues/178)) ([818456b](https://github.com/cloudquery/plugin-pb-python/commit/818456b15a748c409fd2c74fc76bca99c2489357))
+
 ## [0.0.46](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.45...v0.0.46) (2025-08-01)
 
 
