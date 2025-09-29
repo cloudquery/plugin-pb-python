@@ -2,27 +2,30 @@ name: publish
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
+
+permissions:
+  contents: read
 
 jobs:
-   pypi-publish:
-     name: upload release to PyPI
-     runs-on: ubuntu-latest
-     permissions:
-       # IMPORTANT: this permission is mandatory for trusted publishing
-       id-token: write
-     steps:
-       - name: Checkout
-         uses: actions/checkout@v5
-       - name: Set up Python
-         uses: actions/setup-python@v5
-         with:
-           python-version: '3.13'
-       - name: Install dependencies
-         run: |
-           pip install -r requirements.txt
-           pip install build
-       - name: Build package
-         run: python -m build
-       - name: Publish package distributions to PyPI
-         uses: pypa/gh-action-pypi-publish@release/v1
+  pypi-publish:
+    name: upload release to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install build
+      - name: Build package
+        run: python -m build
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
