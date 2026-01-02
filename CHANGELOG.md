@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.51](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.50...v0.0.51) (2026-01-02)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v25.11.0 ([#198](https://github.com/cloudquery/plugin-pb-python/issues/198)) ([1154ca1](https://github.com/cloudquery/plugin-pb-python/commit/1154ca146e50bdc052f2d9dc8020c541969faeba))
+* **deps:** Update dependency black to v25.12.0 ([#203](https://github.com/cloudquery/plugin-pb-python/issues/203)) ([d87488c](https://github.com/cloudquery/plugin-pb-python/commit/d87488cf6acc68018764fb374e15f28a584750ed))
+* **deps:** Update dependency pytest to v9 ([#201](https://github.com/cloudquery/plugin-pb-python/issues/201)) ([73cf3b6](https://github.com/cloudquery/plugin-pb-python/commit/73cf3b634700370efab9d1f135d9835a202ec2ed))
+* **deps:** Update dependency pytest to v9.0.2 ([#202](https://github.com/cloudquery/plugin-pb-python/issues/202)) ([b92331f](https://github.com/cloudquery/plugin-pb-python/commit/b92331f7925f4681f653110a9a3ff0670d1ac8c7))
+
 ## [0.0.50](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.49...v0.0.50) (2025-11-03)
 
 
