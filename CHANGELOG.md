@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.52](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.51...v0.0.52) (2026-02-02)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v26 ([#205](https://github.com/cloudquery/plugin-pb-python/issues/205)) ([bc358b6](https://github.com/cloudquery/plugin-pb-python/commit/bc358b655f320b03e0ca1b1273d577fdced09146))
+* **deps:** Update dependency pyarrow to v23 ([#206](https://github.com/cloudquery/plugin-pb-python/issues/206)) ([e4c39b6](https://github.com/cloudquery/plugin-pb-python/commit/e4c39b62520e76f2bd5d38517592f0f5d8704e84))
+
 ## [0.0.51](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.50...v0.0.51) (2026-01-02)
 
 
