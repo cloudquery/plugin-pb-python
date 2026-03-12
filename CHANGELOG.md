@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.54](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.53...v0.0.54) (2026-03-12)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency black to v26.3.1 [SECURITY] ([#213](https://github.com/cloudquery/plugin-pb-python/issues/213)) ([9480fe7](https://github.com/cloudquery/plugin-pb-python/commit/9480fe7bbd50adba4bfd085ddb3fc097f7f022ff))
+
 ## [0.0.53](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.52...v0.0.53) (2026-03-01)
 
 

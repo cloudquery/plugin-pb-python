@@ -37,7 +37,7 @@ packages = [
 ]
 setuptools.setup(
     name=name,
-    version="0.0.53",
+    version="0.0.54",
     description=description,
     long_description=long_description,
     author="CloudQuery LTD",
