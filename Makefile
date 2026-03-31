@@ -2,10 +2,10 @@ test:
 	uv run pytest .
 
 fmt:
-	uv run black . --exclude=cloudquery
+	uv run black . --extend-exclude=cloudquery
 
 fmt-check:
-	uv run black --check . --exclude=cloudquery
+	uv run black --check . --extend-exclude=cloudquery
 
 clone-proto:
 	git clone https://github.com/cloudquery/plugin-pb
