@@ -53,3 +53,4 @@ cloudquery = [
 
 [tool.uv]
 exclude-newer = "1 week"
+exclude-newer-package = { pytest = false }
