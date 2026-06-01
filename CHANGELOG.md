@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.55](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.54...v0.0.55) (2026-06-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#224](https://github.com/cloudquery/plugin-pb-python/issues/224)) ([c8f4360](https://github.com/cloudquery/plugin-pb-python/commit/c8f43605d7e5267ae698bc28eb4a38248f12996e))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#226](https://github.com/cloudquery/plugin-pb-python/issues/226)) ([9e4f23c](https://github.com/cloudquery/plugin-pb-python/commit/9e4f23c747c5112a5b0cc8ffbfef9df6703861dc))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#227](https://github.com/cloudquery/plugin-pb-python/issues/227)) ([77d029f](https://github.com/cloudquery/plugin-pb-python/commit/77d029f9af7e9359d2f0cf16776bc7ab0b55c0e6))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#228](https://github.com/cloudquery/plugin-pb-python/issues/228)) ([08c3834](https://github.com/cloudquery/plugin-pb-python/commit/08c383404eee4f65a590dac7d22c68a95176adb8))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#229](https://github.com/cloudquery/plugin-pb-python/issues/229)) ([c24e6cf](https://github.com/cloudquery/plugin-pb-python/commit/c24e6cfe0a9a20b27e19779e1ac782b45c3cc11d))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#230](https://github.com/cloudquery/plugin-pb-python/issues/230)) ([d7ace83](https://github.com/cloudquery/plugin-pb-python/commit/d7ace8300ebc5c643ad4cf45b4addc7191424873))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#231](https://github.com/cloudquery/plugin-pb-python/issues/231)) ([177a661](https://github.com/cloudquery/plugin-pb-python/commit/177a6614f2c60e86143382a33aad6ef5cbb32f4c))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#232](https://github.com/cloudquery/plugin-pb-python/issues/232)) ([ee48f41](https://github.com/cloudquery/plugin-pb-python/commit/ee48f41d16f17d82103fa60ca6a230178fd7717b))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#234](https://github.com/cloudquery/plugin-pb-python/issues/234)) ([444b631](https://github.com/cloudquery/plugin-pb-python/commit/444b6319118c3fa9a3a41f409230dce6702a588a))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#235](https://github.com/cloudquery/plugin-pb-python/issues/235)) ([3dcfeb6](https://github.com/cloudquery/plugin-pb-python/commit/3dcfeb60111890752fcd8e4407dfc7dd1d534243))
+* **deps:** Update dependency pytest to v9.0.3 [SECURITY] ([#236](https://github.com/cloudquery/plugin-pb-python/issues/236)) ([0f1033a](https://github.com/cloudquery/plugin-pb-python/commit/0f1033ae2be2e1d6850e685a0c6e448e40809cc3))
+
 ## [0.0.54](https://github.com/cloudquery/plugin-pb-python/compare/v0.0.53...v0.0.54) (2026-03-12)
 
 
