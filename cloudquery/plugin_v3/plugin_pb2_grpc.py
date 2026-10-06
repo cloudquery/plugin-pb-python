@@ -94,6 +94,11 @@ class PluginStub(object):
                 request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.SerializeToString,
                 response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.FromString,
                 _registered_method=True)
+        self.AssessTables = channel.unary_unary(
+                '/cloudquery.plugin.v3.Plugin/AssessTables',
+                request_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Request.SerializeToString,
+                response_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Response.FromString,
+                _registered_method=True)
 
 
 class PluginServicer(object):
@@ -186,6 +191,14 @@ class PluginServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AssessTables(self, request, context):
+        """Assess how the destination plugin would apply table schema changes, without writing anything.
+        Plugins that do not support assessment return Unimplemented.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PluginServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -248,6 +261,11 @@ def add_PluginServicer_to_server(servicer, server):
                     servicer.TestConnection,
                     request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.FromString,
                     response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.SerializeToString,
+            ),
+            'AssessTables': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssessTables,
+                    request_deserializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Request.FromString,
+                    response_serializer=cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -574,6 +592,33 @@ class Plugin(object):
             '/cloudquery.plugin.v3.Plugin/TestConnection',
             cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Request.SerializeToString,
             cloudquery_dot_plugin__v3_dot_plugin__pb2.TestConnection.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AssessTables(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cloudquery.plugin.v3.Plugin/AssessTables',
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Request.SerializeToString,
+            cloudquery_dot_plugin__v3_dot_plugin__pb2.AssessTables.Response.FromString,
             options,
             channel_credentials,
             insecure,

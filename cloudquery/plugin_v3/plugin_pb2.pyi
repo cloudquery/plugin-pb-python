@@ -307,3 +307,85 @@ class TestConnection(_message.Message):
         failure_description: str
         def __init__(self, success: bool = ..., failure_code: _Optional[str] = ..., failure_description: _Optional[str] = ...) -> None: ...
     def __init__(self) -> None: ...
+
+class AssessTables(_message.Message):
+    __slots__ = ()
+    class Category(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        CATEGORY_UNKNOWN: _ClassVar[AssessTables.Category]
+        CATEGORY_NO_CHANGE: _ClassVar[AssessTables.Category]
+        CATEGORY_AUTOMATICALLY_MIGRATABLE: _ClassVar[AssessTables.Category]
+        CATEGORY_MANUAL_MIGRATION_REQUIRED: _ClassVar[AssessTables.Category]
+        CATEGORY_TABLE_REMOVED: _ClassVar[AssessTables.Category]
+        CATEGORY_FILE_SCHEMA_CHANGED: _ClassVar[AssessTables.Category]
+    CATEGORY_UNKNOWN: AssessTables.Category
+    CATEGORY_NO_CHANGE: AssessTables.Category
+    CATEGORY_AUTOMATICALLY_MIGRATABLE: AssessTables.Category
+    CATEGORY_MANUAL_MIGRATION_REQUIRED: AssessTables.Category
+    CATEGORY_TABLE_REMOVED: AssessTables.Category
+    CATEGORY_FILE_SCHEMA_CHANGED: AssessTables.Category
+    class TablePair(_message.Message):
+        __slots__ = ("old_table", "new_table")
+        OLD_TABLE_FIELD_NUMBER: _ClassVar[int]
+        NEW_TABLE_FIELD_NUMBER: _ClassVar[int]
+        old_table: bytes
+        new_table: bytes
+        def __init__(self, old_table: _Optional[bytes] = ..., new_table: _Optional[bytes] = ...) -> None: ...
+    class Evidence(_message.Message):
+        __slots__ = ("synthetic_value", "before", "after")
+        SYNTHETIC_VALUE_FIELD_NUMBER: _ClassVar[int]
+        BEFORE_FIELD_NUMBER: _ClassVar[int]
+        AFTER_FIELD_NUMBER: _ClassVar[int]
+        synthetic_value: str
+        before: str
+        after: str
+        def __init__(self, synthetic_value: _Optional[str] = ..., before: _Optional[str] = ..., after: _Optional[str] = ...) -> None: ...
+    class ColumnFinding(_message.Message):
+        __slots__ = ("column_name", "category", "old_type", "new_type", "safe_mode_behavior", "forced_mode_behavior", "evidence")
+        COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
+        CATEGORY_FIELD_NUMBER: _ClassVar[int]
+        OLD_TYPE_FIELD_NUMBER: _ClassVar[int]
+        NEW_TYPE_FIELD_NUMBER: _ClassVar[int]
+        SAFE_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
+        FORCED_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
+        EVIDENCE_FIELD_NUMBER: _ClassVar[int]
+        column_name: str
+        category: AssessTables.Category
+        old_type: str
+        new_type: str
+        safe_mode_behavior: str
+        forced_mode_behavior: str
+        evidence: _containers.RepeatedCompositeFieldContainer[AssessTables.Evidence]
+        def __init__(self, column_name: _Optional[str] = ..., category: _Optional[_Union[AssessTables.Category, str]] = ..., old_type: _Optional[str] = ..., new_type: _Optional[str] = ..., safe_mode_behavior: _Optional[str] = ..., forced_mode_behavior: _Optional[str] = ..., evidence: _Optional[_Iterable[_Union[AssessTables.Evidence, _Mapping]]] = ...) -> None: ...
+    class TableFinding(_message.Message):
+        __slots__ = ("table_name", "category", "safe_mode_behavior", "forced_mode_behavior", "columns", "evidence", "coverage_incomplete", "coverage_incomplete_reason")
+        TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
+        CATEGORY_FIELD_NUMBER: _ClassVar[int]
+        SAFE_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
+        FORCED_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
+        COLUMNS_FIELD_NUMBER: _ClassVar[int]
+        EVIDENCE_FIELD_NUMBER: _ClassVar[int]
+        COVERAGE_INCOMPLETE_FIELD_NUMBER: _ClassVar[int]
+        COVERAGE_INCOMPLETE_REASON_FIELD_NUMBER: _ClassVar[int]
+        table_name: str
+        category: AssessTables.Category
+        safe_mode_behavior: str
+        forced_mode_behavior: str
+        columns: _containers.RepeatedCompositeFieldContainer[AssessTables.ColumnFinding]
+        evidence: _containers.RepeatedCompositeFieldContainer[AssessTables.Evidence]
+        coverage_incomplete: bool
+        coverage_incomplete_reason: str
+        def __init__(self, table_name: _Optional[str] = ..., category: _Optional[_Union[AssessTables.Category, str]] = ..., safe_mode_behavior: _Optional[str] = ..., forced_mode_behavior: _Optional[str] = ..., columns: _Optional[_Iterable[_Union[AssessTables.ColumnFinding, _Mapping]]] = ..., evidence: _Optional[_Iterable[_Union[AssessTables.Evidence, _Mapping]]] = ..., coverage_incomplete: bool = ..., coverage_incomplete_reason: _Optional[str] = ...) -> None: ...
+    class Request(_message.Message):
+        __slots__ = ("tables", "migrate_force")
+        TABLES_FIELD_NUMBER: _ClassVar[int]
+        MIGRATE_FORCE_FIELD_NUMBER: _ClassVar[int]
+        tables: _containers.RepeatedCompositeFieldContainer[AssessTables.TablePair]
+        migrate_force: bool
+        def __init__(self, tables: _Optional[_Iterable[_Union[AssessTables.TablePair, _Mapping]]] = ..., migrate_force: bool = ...) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ("tables",)
+        TABLES_FIELD_NUMBER: _ClassVar[int]
+        tables: _containers.RepeatedCompositeFieldContainer[AssessTables.TableFinding]
+        def __init__(self, tables: _Optional[_Iterable[_Union[AssessTables.TableFinding, _Mapping]]] = ...) -> None: ...
+    def __init__(self) -> None: ...
