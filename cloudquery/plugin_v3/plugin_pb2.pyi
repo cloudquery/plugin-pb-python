@@ -358,24 +358,22 @@ class AssessTables(_message.Message):
         evidence: _containers.RepeatedCompositeFieldContainer[AssessTables.Evidence]
         def __init__(self, column_name: _Optional[str] = ..., category: _Optional[_Union[AssessTables.Category, str]] = ..., old_type: _Optional[str] = ..., new_type: _Optional[str] = ..., safe_mode_behavior: _Optional[str] = ..., forced_mode_behavior: _Optional[str] = ..., evidence: _Optional[_Iterable[_Union[AssessTables.Evidence, _Mapping]]] = ...) -> None: ...
     class TableFinding(_message.Message):
-        __slots__ = ("table_name", "category", "safe_mode_behavior", "forced_mode_behavior", "columns", "evidence", "coverage_incomplete", "coverage_incomplete_reason")
+        __slots__ = ("table_name", "category", "safe_mode_behavior", "forced_mode_behavior", "columns", "evidence", "incomplete_coverage_reason")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
         CATEGORY_FIELD_NUMBER: _ClassVar[int]
         SAFE_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
         FORCED_MODE_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
         COLUMNS_FIELD_NUMBER: _ClassVar[int]
         EVIDENCE_FIELD_NUMBER: _ClassVar[int]
-        COVERAGE_INCOMPLETE_FIELD_NUMBER: _ClassVar[int]
-        COVERAGE_INCOMPLETE_REASON_FIELD_NUMBER: _ClassVar[int]
+        INCOMPLETE_COVERAGE_REASON_FIELD_NUMBER: _ClassVar[int]
         table_name: str
         category: AssessTables.Category
         safe_mode_behavior: str
         forced_mode_behavior: str
         columns: _containers.RepeatedCompositeFieldContainer[AssessTables.ColumnFinding]
         evidence: _containers.RepeatedCompositeFieldContainer[AssessTables.Evidence]
-        coverage_incomplete: bool
-        coverage_incomplete_reason: str
-        def __init__(self, table_name: _Optional[str] = ..., category: _Optional[_Union[AssessTables.Category, str]] = ..., safe_mode_behavior: _Optional[str] = ..., forced_mode_behavior: _Optional[str] = ..., columns: _Optional[_Iterable[_Union[AssessTables.ColumnFinding, _Mapping]]] = ..., evidence: _Optional[_Iterable[_Union[AssessTables.Evidence, _Mapping]]] = ..., coverage_incomplete: bool = ..., coverage_incomplete_reason: _Optional[str] = ...) -> None: ...
+        incomplete_coverage_reason: str
+        def __init__(self, table_name: _Optional[str] = ..., category: _Optional[_Union[AssessTables.Category, str]] = ..., safe_mode_behavior: _Optional[str] = ..., forced_mode_behavior: _Optional[str] = ..., columns: _Optional[_Iterable[_Union[AssessTables.ColumnFinding, _Mapping]]] = ..., evidence: _Optional[_Iterable[_Union[AssessTables.Evidence, _Mapping]]] = ..., incomplete_coverage_reason: _Optional[str] = ...) -> None: ...
     class Request(_message.Message):
         __slots__ = ("tables", "migrate_force")
         TABLES_FIELD_NUMBER: _ClassVar[int]
