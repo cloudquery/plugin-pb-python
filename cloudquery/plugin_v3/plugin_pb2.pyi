@@ -58,8 +58,10 @@ class Init(_message.Message):
         invocation_id: str
         def __init__(self, spec: _Optional[bytes] = ..., no_connection: bool = ..., invocation_id: _Optional[str] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ()
-        def __init__(self) -> None: ...
+        __slots__ = ("supports_flush",)
+        SUPPORTS_FLUSH_FIELD_NUMBER: _ClassVar[int]
+        supports_flush: bool
+        def __init__(self, supports_flush: bool = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class GetTables(_message.Message):
@@ -108,6 +110,11 @@ class Sync(_message.Message):
         table_name: str
         error: str
         def __init__(self, table_name: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...
+    class MessageCheckpoint(_message.Message):
+        __slots__ = ("record",)
+        RECORD_FIELD_NUMBER: _ClassVar[int]
+        record: bytes
+        def __init__(self, record: _Optional[bytes] = ...) -> None: ...
     class BackendOptions(_message.Message):
         __slots__ = ("table_name", "connection")
         TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -116,7 +123,7 @@ class Sync(_message.Message):
         connection: str
         def __init__(self, table_name: _Optional[str] = ..., connection: _Optional[str] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend", "shard", "withErrorMessages")
+        __slots__ = ("tables", "skip_tables", "skip_dependent_tables", "deterministic_cq_id", "backend", "shard", "withErrorMessages", "supports_checkpoints")
         class Shard(_message.Message):
             __slots__ = ("num", "total")
             NUM_FIELD_NUMBER: _ClassVar[int]
@@ -131,6 +138,7 @@ class Sync(_message.Message):
         BACKEND_FIELD_NUMBER: _ClassVar[int]
         SHARD_FIELD_NUMBER: _ClassVar[int]
         WITHERRORMESSAGES_FIELD_NUMBER: _ClassVar[int]
+        SUPPORTS_CHECKPOINTS_FIELD_NUMBER: _ClassVar[int]
         tables: _containers.RepeatedScalarFieldContainer[str]
         skip_tables: _containers.RepeatedScalarFieldContainer[str]
         skip_dependent_tables: bool
@@ -138,18 +146,21 @@ class Sync(_message.Message):
         backend: Sync.BackendOptions
         shard: Sync.Request.Shard
         withErrorMessages: bool
-        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ..., withErrorMessages: bool = ...) -> None: ...
+        supports_checkpoints: bool
+        def __init__(self, tables: _Optional[_Iterable[str]] = ..., skip_tables: _Optional[_Iterable[str]] = ..., skip_dependent_tables: bool = ..., deterministic_cq_id: bool = ..., backend: _Optional[_Union[Sync.BackendOptions, _Mapping]] = ..., shard: _Optional[_Union[Sync.Request.Shard, _Mapping]] = ..., withErrorMessages: bool = ..., supports_checkpoints: bool = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ("migrate_table", "insert", "delete_record", "error")
+        __slots__ = ("migrate_table", "insert", "delete_record", "error", "checkpoint")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
         INSERT_FIELD_NUMBER: _ClassVar[int]
         DELETE_RECORD_FIELD_NUMBER: _ClassVar[int]
         ERROR_FIELD_NUMBER: _ClassVar[int]
+        CHECKPOINT_FIELD_NUMBER: _ClassVar[int]
         migrate_table: Sync.MessageMigrateTable
         insert: Sync.MessageInsert
         delete_record: Sync.MessageDeleteRecord
         error: Sync.MessageError
-        def __init__(self, migrate_table: _Optional[_Union[Sync.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Sync.MessageInsert, _Mapping]] = ..., delete_record: _Optional[_Union[Sync.MessageDeleteRecord, _Mapping]] = ..., error: _Optional[_Union[Sync.MessageError, _Mapping]] = ...) -> None: ...
+        checkpoint: Sync.MessageCheckpoint
+        def __init__(self, migrate_table: _Optional[_Union[Sync.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Sync.MessageInsert, _Mapping]] = ..., delete_record: _Optional[_Union[Sync.MessageDeleteRecord, _Mapping]] = ..., error: _Optional[_Union[Sync.MessageError, _Mapping]] = ..., checkpoint: _Optional[_Union[Sync.MessageCheckpoint, _Mapping]] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class Read(_message.Message):
@@ -236,20 +247,33 @@ class Write(_message.Message):
         where_clause: _containers.RepeatedCompositeFieldContainer[PredicatesGroup]
         table_relations: _containers.RepeatedCompositeFieldContainer[TableRelation]
         def __init__(self, table_name: _Optional[str] = ..., where_clause: _Optional[_Iterable[_Union[PredicatesGroup, _Mapping]]] = ..., table_relations: _Optional[_Iterable[_Union[TableRelation, _Mapping]]] = ...) -> None: ...
+    class MessageFlush(_message.Message):
+        __slots__ = ("id",)
+        ID_FIELD_NUMBER: _ClassVar[int]
+        id: int
+        def __init__(self, id: _Optional[int] = ...) -> None: ...
     class Request(_message.Message):
-        __slots__ = ("migrate_table", "insert", "delete", "delete_record")
+        __slots__ = ("migrate_table", "insert", "delete", "delete_record", "flush")
         MIGRATE_TABLE_FIELD_NUMBER: _ClassVar[int]
         INSERT_FIELD_NUMBER: _ClassVar[int]
         DELETE_FIELD_NUMBER: _ClassVar[int]
         DELETE_RECORD_FIELD_NUMBER: _ClassVar[int]
+        FLUSH_FIELD_NUMBER: _ClassVar[int]
         migrate_table: Write.MessageMigrateTable
         insert: Write.MessageInsert
         delete: Write.MessageDeleteStale
         delete_record: Write.MessageDeleteRecord
-        def __init__(self, migrate_table: _Optional[_Union[Write.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Write.MessageInsert, _Mapping]] = ..., delete: _Optional[_Union[Write.MessageDeleteStale, _Mapping]] = ..., delete_record: _Optional[_Union[Write.MessageDeleteRecord, _Mapping]] = ...) -> None: ...
+        flush: Write.MessageFlush
+        def __init__(self, migrate_table: _Optional[_Union[Write.MessageMigrateTable, _Mapping]] = ..., insert: _Optional[_Union[Write.MessageInsert, _Mapping]] = ..., delete: _Optional[_Union[Write.MessageDeleteStale, _Mapping]] = ..., delete_record: _Optional[_Union[Write.MessageDeleteRecord, _Mapping]] = ..., flush: _Optional[_Union[Write.MessageFlush, _Mapping]] = ...) -> None: ...
     class Response(_message.Message):
-        __slots__ = ()
-        def __init__(self) -> None: ...
+        __slots__ = ("flush_id", "flush_error", "failed_tables")
+        FLUSH_ID_FIELD_NUMBER: _ClassVar[int]
+        FLUSH_ERROR_FIELD_NUMBER: _ClassVar[int]
+        FAILED_TABLES_FIELD_NUMBER: _ClassVar[int]
+        flush_id: int
+        flush_error: str
+        failed_tables: _containers.RepeatedScalarFieldContainer[str]
+        def __init__(self, flush_id: _Optional[int] = ..., flush_error: _Optional[str] = ..., failed_tables: _Optional[_Iterable[str]] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class Transform(_message.Message):
