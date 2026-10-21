@@ -68,7 +68,7 @@ wheels = [
 
 [[package]]
 name = "cloudquery-plugin-pb"
-version = "0.0.55"
+version = "0.0.56"
 source = { editable = "." }
 dependencies = [
     { name = "grpcio" },
