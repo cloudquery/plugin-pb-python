@@ -6,7 +6,7 @@ This is a low-level auto-generated gRPC client and server for CloudQuery plugin 
 
 ### Prerequisites
 
-- [Python 3.9+](https://www.python.org/downloads/)
+- [Python 3.10+](https://www.python.org/downloads/)
 - [uv](https://docs.astral.sh/uv/)
 
 ### Install dependencies
